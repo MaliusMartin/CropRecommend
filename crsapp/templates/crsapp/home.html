@@ -1,0 +1,27 @@
+{% extends 'crsapp/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+
+  <p>Enter your agricultural data to find the recommended crop for your land.</p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <button type="submit" class="btn btn-primary">Get Recommendation</button>
+  </form>
+
+  {% if recommendation %}
+    <p>Based on your input, the predicted values for your land are:</p>
+    <ul>
+      {% for feature, value in recommendation.items %}
+        <li>{{ feature }}: {{ value }}</li>
+      {% endfor %}
+    </ul>
+    {% if predicted_crop %}
+      <p>Based on the prediction, the recommended crop for your land is: <strong>{{ predicted_crop }}</strong></p>
+    {% else %}
+      <p>Prediction unavailable yet. Please refer to the displayed values for further analysis.</p>
+    {% endif %}
+  {% endif %}
+</div>
+{% endblock %}
