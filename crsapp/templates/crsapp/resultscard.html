@@ -1,0 +1,15 @@
+{% load static %}
+<div class="card" style="width:400px">
+  {% if predicted_crop %}
+      {% with predicted_crop|lower as crop_name %}
+          <img class="card-img-top" src="{% static 'images/' %}{{ crop_name }}.jpg" alt="{{ predicted_crop }}">
+      {% endwith %}
+  {% else %}
+      <p>No predicted crop available.</p>
+  {% endif %}
+  <div class="card-body">
+      <p>Based on the inputs, the recommended crop for your land is:</p>
+      <h4 class="card-title"><strong>{{ predicted_crop }}</strong></h4>
+      <a href="{% url 'home' %}" class="btn btn-primary">Check Again</a>
+  </div>
+</div>
