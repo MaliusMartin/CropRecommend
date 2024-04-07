@@ -64,7 +64,7 @@ To use this system locally, follow these steps:
     ```bash
     python manage.py runserver
     ```
-7. Access the application in your web browser at `http://localhost:8000`.
+7. Access the application in your web browser at `https://croprecommend-qo9o.onrender.com`.
 
 ## Future Enhancements:
 Implement more sophisticated machine learning algorithms for crop prediction.
