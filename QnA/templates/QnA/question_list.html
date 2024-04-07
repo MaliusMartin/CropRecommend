@@ -1,0 +1,14 @@
+{% extends 'crsapp/base.html' %}
+
+{% block content %}
+<div class="container">
+  <h1>Questions</h1>
+  <ul class="list-group">
+    {% for question in questions %}
+      <li class="list-group-item">{{ question.text }}</li>
+    {% empty %}
+      <li class="list-group-item">No questions available.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

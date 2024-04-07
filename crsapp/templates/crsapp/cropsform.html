@@ -1,0 +1,60 @@
+
+<div class="container mt-5">
+  {% comment %} <h1 class="text-center">Enter your agricultural data to find the recommended crop for your land.</h1> {% endcomment %}
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="id_n">Nitrogen Content (ppm):</label>
+      <input type="number" class="form-control" name="n" id="id_n" required step="0.001">
+    </div>
+
+    <div class="form-group">
+      <label for="id_p">Phosphorus Content (ppm):</label>
+      <input type="number" class="form-control" name="p" id="id_p" required step="0.001">
+    </div>
+
+    <div class="form-group">
+      <label for="id_k">Potassium Content (ppm):</label>
+      <input type="number" class="form-control" name="k" id="id_k" required step="0.001">
+    </div>
+
+    <div class="form-group">
+      <label for="id_temperature">Average Annual Temperature (°C):</label>
+      <input type="number" class="form-control" name="temperature" id="id_temperature" required step="0.001">
+    </div>
+
+    <div class="form-group">
+      <label for="id_humidity">Average Annual Humidity (%):</label>
+      <input type="number" class="form-control" name="humidity" id="id_humidity" required step="0.001">
+    </div>
+
+    <div class="form-group">
+      <label for="id_ph">Soil pH:</label>
+      <input type="number" class="form-control" name="ph" id="id_ph" required step="0.001">
+    </div>
+
+    <div class="form-group">
+      <label for="id_rainfall">Average Annual Rainfall (mm):</label>
+      <input type="number" class="form-control" name="rainfall" id="id_rainfall" required step="0.001">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Recommendation</button>
+  </form>
+  <div style="padding-bottom: 40px;"></div>
+  {% if recommendation %}
+    {% comment %} <p>Based on your input, the predicted values for your land are:</p> {% endcomment %}
+    <ul>
+      {% for feature, value in recommendation.items %}
+        <li>{{ feature }}: {{ value }}</li>
+      {% endfor %}
+    </ul>
+    {% if predicted_crop %}
+      <p>Based on the land data, the recommended crop for your land is: <strong>{{ predicted_crop }}</strong></p>
+    {% else %}
+      <p>Prediction unavailable yet. Please refer to the displayed values for further analysis.</p>
+    {% endif %}
+  {% endif %}
+
+ 
+</div>

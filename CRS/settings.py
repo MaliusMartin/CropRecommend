@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['127.0.0.1','croprecommend-qo9o.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'QnA',
     'crsapp',
     'bootstrap4',
     'django.contrib.admin',

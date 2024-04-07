@@ -6,20 +6,27 @@
     {% bootstrap_javascript %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <title>Crop Recommendation System</title>
 </head>
 
 <body>
     {% include "crsapp/navbar.html" %}
+    {% include "crsapp/landingPage.html" %} 
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 offset-md-1">
                 {% block content %}
+             
                 {% endblock %}
             </div>
         </div>
     </div>
+    <div style="padding-bottom: 340px;"></div>
 
-   
+    {% include "crsapp/footer.html" %}
 </body>
 </html>
