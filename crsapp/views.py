@@ -51,7 +51,7 @@ def home(request):
             return render(request, 'crsapp/result.html', {'recommendation': recommendation, 'predicted_crop': crop_label})
     else:
         form = CropRecommendationForm()  # Create an empty form for initial display
-    return render(request, 'crsapp/landingPage.html', {'form': form})
+    return render(request, 'crsapp/base.html', {'form': form})
 
 def get_crop_label(prediction):
     """

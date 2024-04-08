@@ -78,6 +78,9 @@ Feedback, bug reports, and contributions are welcome! If you encounter any issue
 
 ---
 
+## Data
+Obtained from huggingface `https://huggingface.co/datasets/` and can be found in the project directory training code can be found in the google colab `https://colab.research.google.com/drive/1PGLfDnS-Z-03jQsbC2ucWcRDcYpHFa1j`
+
 ## License:
 This project is licensed under the `MIT License`.
 
