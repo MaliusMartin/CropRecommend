@@ -1,0 +1,91 @@
+
+{% load static %}
+<head>
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title> Yield Results</title>
+</head>
+
+
+
+<div class="row justify-content-center">
+        <div class="card" style="width:600px">
+        
+            <img src="{% static 'video/Congratulation.gif' %}" alt="Congratulation gif" style="width:100%">
+        
+            <div class="card-body">
+                <h1>Predicted Yield Result</h1>
+                
+                    <h1><strong>{{ predicted_yield }}</strong> hectogram/hectare (hg/ha)</h1>
+                <a href="{% url 'home' %}" type="button" class="btn btn-outline-dark btn-block"><strong>CHECK AGAIN</strong></a>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% comment %} 
+{% extends 'crsapp/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="card" style="width:400px">
+  
+    {% if item %}
+        {% if item == 'Rice, paddy' %}
+            {% with 'images2/Rice.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Sweet potatoes' %}
+            {% with 'images2/Sweet potatoes.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Potatoes' %}
+            {% with 'images2/Potatoes.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Cassava' %}
+            {% with 'images2/Cassava.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Maize' %}
+            {% with 'images2/Maize.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Wheat' %}
+            {% with 'images2/Wheat.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Sorghum' %}
+            {% with 'images2/Sorghum.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Plantains and others' %}
+            {% with 'images2/Plantains.jpg' as img_path %}
+            {% endwith %}
+        {% elif item == 'Yams' %}
+            {% with 'images2/Yams.jpg' as img_path %}
+            {% endwith %}
+        {% else %}
+            {% with 'images2/'|add:item|lower|add:'.jpg' as img_path %}
+             {% endwith %}
+        {% endif %}
+        <img src="{% static img_path %}" alt="{{ item }}" style="width:100%">
+    {% endif %}
+    <div class="card-body">
+        <h1>Predicted Yield Result</h1>
+        <p>The predicted yield is: <strong>{{ predicted_yield }}</strong> hectogram/hectare (hg/ha)</p>
+        <a href="{% url 'home' %}" class="btn btn-primary">Check Again</a>
+    </div>
+</div>
+
+{% endblock %} {% endcomment %}
